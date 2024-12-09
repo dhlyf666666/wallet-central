@@ -1,0 +1,29 @@
+<configuration>
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>logFileName</key>
+            <defaultValue>general</defaultValue>
+        </discriminator>
+        <sift>
+            <!-- 注意：这里使用了动态名称的文件Appender -->
+            <appender name="FILE-${logFileName}" class="ch.qos.logback.core.FileAppender">
+                <file>logs/${logFileName}.log</file>
+                <encoder>
+                    <!-- 在日志模式开头加入 %X{uuid} 来引用 MDC 中的 uuid -->
+                    <pattern>%X{uuid} %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+                </encoder>
+            </appender>
+        </sift>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%X{uuid} %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="SIFT"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

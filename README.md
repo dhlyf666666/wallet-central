@@ -102,6 +102,13 @@
 
 ---
 
+## 管理后台项目
+本项目的管理后台和页面代码地址如下：
+- **管理后台项目地址**: [wallet-central-admin](https://github.com/dhlyf666666/wallet-central-admin)
+- **管理后台页面地址**: [wallet-central-admin-vue](https://github.com/dhlyf666666/wallet-central-admin-vue)
+
+---
+
 ## 协议
 本项目采用 **署名协议 (CC BY 4.0)**，您可以自由分享、复制、传播和修改本项目代码，但必须满足以下条件：
 
